@@ -14,7 +14,7 @@ const Navbar = () => {
         setTimeout(() => {
             setsearchtoggle(!searchtoggle)
         }, 200)
-        console.log('button or key clicked');
+       
     }
     function handleBlur() {
         if (search === "") {

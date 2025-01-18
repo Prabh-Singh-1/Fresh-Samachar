@@ -7,8 +7,7 @@ import Loader from "../components/Loader";
 export default function Home() {
     const { allnews, setAllnews } = useContext(SearchContext);
     const { search, setSearch } = useContext(SearchContext)
-    console.log("Searched value", search);
-
+   
     useEffect(() => {
         async function fetchData() {
             try {
