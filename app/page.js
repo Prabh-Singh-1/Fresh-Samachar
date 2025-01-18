@@ -15,7 +15,7 @@ const page = () => {
     async function fetchData() {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=bitcoin&from=2025-01-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
+          `https://newsapi.org/v2/everything?q=bitcoin&from=2025-01-01&sortBy=publishedAt&apiKey=8587a84dd5c34330b3433fb07a02f58f`
         );
         const data = await response.json();
         setAllnews(data.articles || []);
@@ -30,7 +30,7 @@ const page = () => {
     async function fetchData() {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=${search}&from=2025-01-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
+          `https://newsapi.org/v2/everything?q=${search}&from=2025-01-01&sortBy=publishedAt&apiKey=8587a84dd5c34330b3433fb07a02f58f`
         );
         const data = await response.json();
         setAllnews(data.articles || []);
