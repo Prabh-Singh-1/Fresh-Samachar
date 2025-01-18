@@ -5,9 +5,23 @@ import { SearchContext } from "../context/SearchContext";
 import Loader from "../components/Loader";
 
 export default function Home() {
-    const { allnews, setAllnews } = useContext(SearchContext);
     const { search, setSearch } = useContext(SearchContext)
-   
+    const [allnews, setAllnews] = useState([])
+    useEffect(() => {
+        async function fetchData() {
+          try {
+            const response = await fetch(
+              `https://newsapi.org/v2/everything?q=punjab's today headline&from=2025-01-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
+            );
+            const data = await response.json();
+            setAllnews(data.articles || []);
+          } catch (err) {
+            console.error("Failed to fetch data from server", err);
+          }
+        }
+        fetchData();
+      }, []);
+
     useEffect(() => {
         async function fetchData() {
             try {
