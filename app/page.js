@@ -28,7 +28,11 @@ const page = () => {
   function createMarkup(data) {
     return { __html: data };
   }
-  console.log("Data", data.articles);
+  useEffect(() => {
+    console.log("Data", data.articles);
+    console.log("Data",allnews);
+  }, [allnews])
+  
   return (
     <>
       <div className="bg-gray-100 min-h-screen">
