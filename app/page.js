@@ -13,7 +13,7 @@ const page = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`/api/news?query=${search}`);
+        const response = await fetch(`https://fresh-samachar.vercel.app/api/news?query=${search}`);
         const data = await response.json();
         setAllnews(data.articles || []);
       } catch (err) {
@@ -21,22 +21,7 @@ const page = () => {
       }
     }
     fetchData();
-  }, [search]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          `https://newsapi.org/v2/everything?q=${search}&from=2025-01-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
-        );
-        const data = await response.json();
-        setAllnews(data.articles || []);
-      } catch (err) {
-        console.error("Failed to fetch data from server", err);
-      }
-    }
-    fetchData();
-  }, [search]);
+  }, [search]);  
 
   function createMarkup(data) {
     return { __html: data };
