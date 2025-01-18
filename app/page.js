@@ -12,6 +12,21 @@ const page = () => {
 
   useEffect(() => {
     async function fetchData() {
+        try {
+            const response = await fetch(`https://fresh-samachar.vercel.app/api/news?query=${search}`);
+            const data = await response.json();
+            console.log('data', data)
+            console.log('Articles ', data.articles);
+            setAllnews(data.articles || []);
+        } catch (err) {
+            console.error("Failed to fetch data from backend", err);
+        }
+    }
+    fetchData();
+}, []);
+
+  useEffect(() => {
+    async function fetchData() {
       try {
         const response = await fetch(`https://fresh-samachar.vercel.app/api/news?query=${search}`);
         const data = await response.json();
@@ -28,11 +43,7 @@ const page = () => {
   function createMarkup(data) {
     return { __html: data };
   }
-  useEffect(() => {
-    console.log("Data", data.articles);
-    console.log("Data",allnews);
-  }, [allnews])
-  
+
   return (
     <>
       <div className="bg-gray-100 min-h-screen">

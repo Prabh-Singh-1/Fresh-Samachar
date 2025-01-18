@@ -6,25 +6,42 @@ import Loader from "../components/Loader";
 
 export default function Home() {
     const { search, setSearch } = useContext(SearchContext)
-    const [allnews, setAllnews] = useState([])
-    const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-   
-    useEffect(() => {
-        async function fetchData() {
-          try {
-            const response = await fetch(`https://fresh-samachar.vercel.app/api/news?query=${search}`);
-            const data = await response.json();
-            setAllnews(data.articles || []);
-          } catch (err) {
-            console.error("Failed to fetch data from backend", err);
-          }
-        }
-        fetchData();
-      }, [search]);  
+    const [allnews, setAllnews] = useState([]);
 
     function createMarkup(data) {
         return { __html: data };
     }
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch(`https://fresh-samachar.vercel.app/api/news?query=${search}`);
+                const data = await response.json();
+                console.log('data', data)
+                console.log('Articles ', data.articles);
+                setAllnews(data.articles || []);
+            } catch (err) {
+                console.error("Failed to fetch data from backend", err);
+            }
+        }
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch(`https://fresh-samachar.vercel.app/api/news?query=${search}`);
+                const data = await response.json();
+                console.log('data', data)
+                console.log('Articles ', data.articles);
+                setAllnews(data.articles || []);
+            } catch (err) {
+                console.error("Failed to fetch data from backend", err);
+            }
+        }
+        fetchData();
+    }, [search]);
+
 
     return (
         <>
