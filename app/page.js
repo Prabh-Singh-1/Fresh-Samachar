@@ -7,7 +7,6 @@ import { redirect } from 'next/navigation'
 
 const page = () => {
   const { search, setSearch } = useContext(SearchContext)
-
   const [allnews, setAllnews] = useState([]);
 
   useEffect(() => {
