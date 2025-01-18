@@ -12,7 +12,7 @@ export default function Home() {
         async function fetchData() {
           try {
             const response = await fetch(
-              `https://newsapi.org/v2/everything?q=punjab's today headline&from=2025-01-01&sortBy=publishedAt&apiKey=${apiKey}`
+              `https://newsapi.org/v2/everything?q=punjab's today headline&from=2025-01-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
             );
             const data = await response.json();
             setAllnews(data.articles || []);
@@ -27,7 +27,7 @@ export default function Home() {
         async function fetchData() {
             try {
                 const response = await fetch(
-                    `https://newsapi.org/v2/everything?q=${search}&from=2025-01-01&sortBy=publishedAt&apiKey=${apiKey}`
+                    `https://newsapi.org/v2/everything?q=${search}&from=2025-01-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
                 );
                 const data = await response.json();
                 setAllnews(data.articles || []);
