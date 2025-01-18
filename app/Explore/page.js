@@ -5,26 +5,9 @@ import { SearchContext } from "../context/SearchContext";
 import Loader from "../components/Loader";
 
 export default function Home() {
-
+    const { allnews, setAllnews } = useContext(SearchContext);
     const { search, setSearch } = useContext(SearchContext)
     console.log("Searched value", search);
-
-    const [allnews, setAllnews] = useState([])
-
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await fetch(
-                    `https://newsapi.org/v2/everything?q=bitcoin&from=2025-01-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
-                );
-                const data = await response.json();
-                setAllnews(data.articles || []);
-            } catch (err) {
-                console.error("Failed to fetch data from server", err);
-            }
-        }
-        fetchData();
-    }, []);
 
     useEffect(() => {
         async function fetchData() {
@@ -58,7 +41,7 @@ export default function Home() {
                                 className="bg-white rounded-lg shadow-lg overflow-hidden"
                             >
                                 <img
-                                    src={news.urlToImage}
+                                    src={news.urlToImage || "./news icon.png"}
                                     alt={news.title}
                                     className="w-full h-48 object-cover"
                                 />

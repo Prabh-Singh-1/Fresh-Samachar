@@ -7,9 +7,10 @@ import { redirect } from 'next/navigation'
 
 const page = () => {
   const { search, setSearch } = useContext(SearchContext)
+  const { allnews, setAllnews } = useContext(SearchContext);
   console.log("Searched value", search);
 
-  const [allnews, setAllnews] = useState([])
+  // const [allnews, setAllnews] = useState([])
 
   useEffect(() => {
     async function fetchData() {
@@ -99,7 +100,7 @@ const page = () => {
                 className="bg-white shadow-md rounded-md overflow-hidden"
               >
                 <img
-                  src={news.urlToImage}
+                  src={news.urlToImage || "./news icon.png"}
                   alt={`Article ${news + 1}`}
                   className="w-full h-40 object-cover"
                 />
