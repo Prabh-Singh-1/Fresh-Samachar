@@ -7,15 +7,15 @@ import { redirect } from 'next/navigation'
 
 const page = () => {
   const { search, setSearch } = useContext(SearchContext)
-  // const { allnews, setAllnews } = useContext(SearchContext);
 
-  const [allnews, setAllnews] = useState([])
+  const [allnews, setAllnews] = useState([]);
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=bitcoin&from=2025-01-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
+          `https://newsapi.org/v2/everything?q=bitcoin&from=2025-01-01&sortBy=publishedAt&apiKey=${apiKey}`
         );
         const data = await response.json();
         setAllnews(data.articles || []);
@@ -30,7 +30,7 @@ const page = () => {
     async function fetchData() {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=${search}&from=2025-01-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
+          `https://newsapi.org/v2/everything?q=${search}&from=2025-01-01&sortBy=publishedAt&apiKey=${apiKey}`
         );
         const data = await response.json();
         setAllnews(data.articles || []);
