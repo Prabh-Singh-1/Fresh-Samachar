@@ -6,23 +6,9 @@ import Loader from "./components/Loader";
 import { redirect } from 'next/navigation'
 
 const page = () => {
-  const { search, setSearch } = useContext(SearchContext)
+  const { search, setSearch } = useContext(SearchContext);
+  const { searchClick, setSearchClick } = useContext(SearchContext);
   const [allnews, setAllnews] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-        try {
-            const response = await fetch(`https://fresh-samachar.vercel.app/api/news?query=${search}`);
-            const data = await response.json();
-            console.log('data', data)
-            console.log('Articles ', data.articles);
-            setAllnews(data.articles || []);
-        } catch (err) {
-            console.error("Failed to fetch data from backend", err);
-        }
-    }
-    fetchData();
-}, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -37,7 +23,23 @@ const page = () => {
       }
     }
     fetchData();
-  }, [search]);  
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`https://fresh-samachar.vercel.app/api/news?query=${search}`);
+        const data = await response.json();
+        setAllnews(data.articles || []);
+      } catch (err) {
+        console.error("Failed to fetch data from backend", err);
+      } finally {
+        setSearchClick(false); 
+      }
+    }
+    fetchData();
+  
+  }, [searchClick]);
 
   function createMarkup(data) {
     return { __html: data };
@@ -55,14 +57,14 @@ const page = () => {
                   src="https://i.ytimg.com/vi/Osj5BaAfj84/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDLvWDSnP9FyniWBKhFT5ZO7VPnzg"
                   alt="Featured News"
                   className="w-full h-60 object-cover rounded-md"
-                />  
+                />
               </div>
               <div className="space-y-4">
                 <p className="text-lg text-gray-700">
                   Stay informed with the latest updates from around the world.
                   Dive into our featured news stories that matter the most.
                 </p>
-                <button onClick={()=>redirect("/Explore")} className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                <button onClick={() => redirect("/Explore")} className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                   Explore Fresh News
                 </button>
               </div>
