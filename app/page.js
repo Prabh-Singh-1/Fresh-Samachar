@@ -75,18 +75,18 @@ const page = () => {
         <section className="container mx-auto px-4 py-10">
           <h2 className="text-2xl font-bold mb-4">News Categories</h2>
           <div className="flex space-x-4 overflow-auto">
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
+            <Link href={`/Category/Business`} className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
               Business
-            </button>
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
+            </Link>
+            <Link href={`/Category/Entertainment`} className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
               Entertainment
-            </button>
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
+            </Link>
+            <Link href={`/Category/Health`} className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
               Health
-            </button>
-            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
+            </Link>
+            <Link href={`/Category/Science and Research`} className="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300">
               Science
-            </button>
+            </Link>
           </div>
         </section>
 

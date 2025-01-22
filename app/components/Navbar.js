@@ -78,12 +78,6 @@ const Navbar = () => {
                                 <Link href="/" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</Link>
                             </li>
                             <li>
-                                <Link href="/About" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</Link>
-                            </li>
-                            <li>
-                                <Link href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</Link>
-                            </li>
-                            <li>
                                 <Link href="/Explore" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Explore News</Link>
                             </li>
                             <li>
@@ -101,20 +95,24 @@ const Navbar = () => {
                                     <div id="dropdownDelay" className={`z-10 ${categorybtn ? "" : "hidden"} absolute top-7 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700`}>
                                         <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDelayButton">
                                             <li className='w-full'>
-                                                <button href="#" className="w-full text-justify block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cricket</button>
+                                                <Link href={`Category/Cricket`} className="w-full text-justify block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cricket</Link>
                                             </li>
                                             <li>
-                                                <button href="#" className="w-full text-justify block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Politics</button>
+                                                <Link href={`Category/Indian Politics`} className="w-full text-justify block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Politics</Link>
                                             </li>
                                             <li>
-                                                <button href="#" className="w-full text-justify block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Current affairs</button>
+                                                <Link href={`Category/Current affairs`} className="w-full text-justify block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Current affairs</Link>
                                             </li>
                                             <li>
-                                                <button href="#" className="w-full text-justify block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</button>
+                                                <Link href={`Category/Health`} className="w-full text-justify block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Health</Link>
                                             </li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
+                            </li>
+                            <li>
+                                <Link href="/About" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</Link>
                             </li>
                         </ul>
                     </div>
