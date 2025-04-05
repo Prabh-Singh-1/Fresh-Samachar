@@ -3,7 +3,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { SearchProvider } from "./context/SearchContext";
 import Footer from "./components/Footer";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Analytics />
+          <SpeedInsights />
           <Footer />
         </SearchProvider>
       </body>
