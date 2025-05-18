@@ -4,8 +4,15 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const query = searchParams.get("query") || "punajb news";
   console.log(query);
+ var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
 
-  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=2025-04-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
+today = yyyy + '-' + mm + '-' + dd;
+
+
+  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=${today}&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
 
   try {
     const response = await fetch(apiUrl);
