@@ -12,7 +12,7 @@ var yyyy = today.getFullYear();
 today = yyyy + '-' + mm + '-' + dd;
 
 
-  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=${today}&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
+  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=2025-${mm}-01&sortBy=publishedAt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
 
   try {
     const response = await fetch(apiUrl);
